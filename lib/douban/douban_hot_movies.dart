@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:dou_ban_movie/douban/movie_card.dart';
-import 'package:dou_ban_movie/model/movies.dart';
+import 'package:dou_ban_movie/model/movie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_toast/flutter_toast.dart';
@@ -53,7 +53,7 @@ class HotMoviesState extends State<HotMoviesPage> {
           FlutterToast.showToast("网络错误");
         }
       } catch (e) {
-        FlutterToast.showToast(e);
+        FlutterToast.showToast(e.toString());
       }
     }
   }

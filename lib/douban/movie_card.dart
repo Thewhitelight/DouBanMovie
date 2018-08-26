@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dou_ban_movie/douban/image_detail.dart';
-import 'package:dou_ban_movie/model/movies.dart';
+import 'package:dou_ban_movie/douban/movie_detail.dart';
+import 'package:dou_ban_movie/model/movie.dart';
 import 'package:flutter/material.dart';
 
 class MovieCard extends StatefulWidget {
@@ -16,7 +17,14 @@ class MovieCardState extends State<MovieCard> {
   @override
   Widget build(BuildContext context) {
     dynamic average = widget.subjects.rating.average;
-    return new Card(
+    return new GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context,
+            new MaterialPageRoute(
+                builder: (context) => new MovieDetail(widget.subjects.id)));
+      },
+      child: new Card(
         elevation: 0.5,
         margin: new EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0.0),
         child: new Padding(
@@ -59,7 +67,7 @@ class MovieCardState extends State<MovieCard> {
                           ),
                           child: new Text(
                             "$average" +
-                                " 导演: " +
+                                "  导演: " +
                                 widget.subjects.directors[0].name,
                             textAlign: TextAlign.start,
                             style: new TextStyle(fontSize: 12.0),
@@ -73,40 +81,58 @@ class MovieCardState extends State<MovieCard> {
                   ),
                 ],
               ),
-            )));
+            )),
+      ),
+    );
   }
 
   List<Widget> buildActors(List<Casts> casts) {
     List<Widget> list = new List();
     for (var cast in casts) {
-      list.add(new Column(
-        children: <Widget>[
-          new Container(
-            width: 45.0,
-            height: 45.0,
-            margin: new EdgeInsets.fromLTRB(8.0, 8.0, 0.0, 0.0),
-            child: new CircleAvatar(
-              backgroundImage: new CachedNetworkImageProvider(
-                cast.avatars != null
-                    ? (cast.avatars.medium != null ? cast.avatars.medium : "")
-                    : "",
-              ),
-            ),
-          ),
-          new Container(
-              width: 45.0,
-              height: 20.0,
-              margin: new EdgeInsets.fromLTRB(8.0, 8.0, 0.0, 0.0),
-              child: new Padding(
-                padding: const EdgeInsets.only(top: 4.0),
-                child: new Text(
-                  cast.name,
-                  textAlign: TextAlign.center,
-                  style: new TextStyle(fontSize: 8.0, color: Colors.black87),
+      list.add(
+        new GestureDetector(
+          onTap: () {
+            Navigator.push(
+                context,
+                new MaterialPageRoute(
+                    builder: (context) =>
+                    new ImageDetail(cast.avatars != null
+                        ? (cast.avatars.large != null ? cast.avatars.large : "")
+                        : "")));
+          },
+          child: new Column(
+            children: <Widget>[
+              new Container(
+                width: 45.0,
+                height: 45.0,
+                margin: new EdgeInsets.fromLTRB(8.0, 8.0, 0.0, 0.0),
+                child: new CircleAvatar(
+                  backgroundImage: new CachedNetworkImageProvider(
+                    cast.avatars != null
+                        ? (cast.avatars.medium != null
+                        ? cast.avatars.medium
+                        : "")
+                        : "",
+                  ),
                 ),
-              )),
-        ],
-      ));
+              ),
+              new Container(
+                  width: 45.0,
+                  height: 20.0,
+                  margin: new EdgeInsets.fromLTRB(8.0, 8.0, 0.0, 0.0),
+                  child: new Padding(
+                    padding: const EdgeInsets.only(top: 4.0),
+                    child: new Text(
+                      cast.name,
+                      textAlign: TextAlign.center,
+                      style:
+                      new TextStyle(fontSize: 8.0, color: Colors.black87),
+                    ),
+                  )),
+            ],
+          ),
+        ),
+      );
     }
     return list;
   }
