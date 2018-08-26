@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:dou_ban_movie/douban/movie_card.dart';
-import 'package:dou_ban_movie/model/movie.dart';
+import 'package:dou_ban_movie/model/movies.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_toast/flutter_toast.dart';
@@ -62,5 +62,4 @@ class TopMoviesState extends State<TopMoviesPage> {
     Subjects subjects = mMovies[index];
     return new MovieCard(subjects);
   }
-
 }

@@ -18,7 +18,8 @@ class ImageDetailState extends State<ImageDetail> {
         title: new Text("图片详情"),
       ),
       body: new Center(
-        child: new CachedNetworkImage(imageUrl: widget.imageUrl),
+        child: new CachedNetworkImage(
+          imageUrl: widget.imageUrl, fit: BoxFit.fill,),
       ),
     );
   }

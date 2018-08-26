@@ -1,7 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dou_ban_movie/douban/avatars.dart';
 import 'package:dou_ban_movie/douban/image_detail.dart';
 import 'package:dou_ban_movie/douban/movie_detail.dart';
-import 'package:dou_ban_movie/model/movie.dart';
+import 'package:dou_ban_movie/model/movies.dart';
 import 'package:flutter/material.dart';
 
 class MovieCard extends StatefulWidget {
@@ -40,10 +41,15 @@ class MovieCardState extends State<MovieCard> {
                               builder: (context) => new ImageDetail(
                                   widget.subjects.images.large)));
                     },
-                    child: new CachedNetworkImage(
-                      imageUrl: widget.subjects.images.medium,
-                      width: 90.0,
-                      height: 160.0,
+                    child: new Padding(
+                      padding: new EdgeInsets.only(
+                        right: 8.0,
+                      ),
+                      child: new CachedNetworkImage(
+                        imageUrl: widget.subjects.images.medium,
+                        width: 90.0,
+                        height: 160.0,
+                      ),
                     ),
                   ),
                   new Container(
@@ -51,31 +57,19 @@ class MovieCardState extends State<MovieCard> {
                     child: new Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                            left: 8.0,
-                          ),
-                          child: new Text(
-                            widget.subjects.title,
-                            textAlign: TextAlign.start,
-                            style: new TextStyle(fontSize: 16.0),
-                          ),
+                        new Text(
+                          widget.subjects.title,
+                          textAlign: TextAlign.start,
+                          style: new TextStyle(fontSize: 16.0),
                         ),
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                            left: 8.0,
-                          ),
-                          child: new Text(
-                            "$average" +
-                                "  导演: " +
-                                widget.subjects.directors[0].name,
-                            textAlign: TextAlign.start,
-                            style: new TextStyle(fontSize: 12.0),
-                          ),
+                        new Text(
+                          "$average" +
+                              "  导演: " +
+                              widget.subjects.directors[0].name,
+                          textAlign: TextAlign.start,
+                          style: new TextStyle(fontSize: 12.0),
                         ),
-                        new Row(
-                          children: buildActors(widget.subjects.casts),
-                        ),
+                        new Avatars(widget.subjects.casts),
                       ],
                     ),
                   ),
@@ -84,56 +78,5 @@ class MovieCardState extends State<MovieCard> {
             )),
       ),
     );
-  }
-
-  List<Widget> buildActors(List<Casts> casts) {
-    List<Widget> list = new List();
-    for (var cast in casts) {
-      list.add(
-        new GestureDetector(
-          onTap: () {
-            Navigator.push(
-                context,
-                new MaterialPageRoute(
-                    builder: (context) =>
-                    new ImageDetail(cast.avatars != null
-                        ? (cast.avatars.large != null ? cast.avatars.large : "")
-                        : "")));
-          },
-          child: new Column(
-            children: <Widget>[
-              new Container(
-                width: 45.0,
-                height: 45.0,
-                margin: new EdgeInsets.fromLTRB(8.0, 8.0, 0.0, 0.0),
-                child: new CircleAvatar(
-                  backgroundImage: new CachedNetworkImageProvider(
-                    cast.avatars != null
-                        ? (cast.avatars.medium != null
-                        ? cast.avatars.medium
-                        : "")
-                        : "",
-                  ),
-                ),
-              ),
-              new Container(
-                  width: 45.0,
-                  height: 20.0,
-                  margin: new EdgeInsets.fromLTRB(8.0, 8.0, 0.0, 0.0),
-                  child: new Padding(
-                    padding: const EdgeInsets.only(top: 4.0),
-                    child: new Text(
-                      cast.name,
-                      textAlign: TextAlign.center,
-                      style:
-                      new TextStyle(fontSize: 8.0, color: Colors.black87),
-                    ),
-                  )),
-            ],
-          ),
-        ),
-      );
-    }
-    return list;
   }
 }
