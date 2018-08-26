@@ -49,7 +49,7 @@ class TopMoviesState extends State<TopMoviesPage> {
           FlutterToast.showToast("网络错误");
         }
       } catch (e) {
-        FlutterToast.showToast(e);
+        FlutterToast.showToast(e.toString());
       }
     }
   }
