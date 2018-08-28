@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dou_ban_movie/douban/avatars.dart';
 import 'package:dou_ban_movie/douban/image_detail.dart';
 import 'package:dou_ban_movie/douban/movie_detail.dart';
+import 'package:dou_ban_movie/douban/util.dart';
 import 'package:dou_ban_movie/model/movies.dart';
 import 'package:flutter/material.dart';
 
@@ -20,10 +21,7 @@ class MovieCardState extends State<MovieCard> {
     dynamic average = widget.subjects.rating.average;
     return new GestureDetector(
       onTap: () {
-        Navigator.push(
-            context,
-            new MaterialPageRoute(
-                builder: (context) => new MovieDetail(widget.subjects.id)));
+        Util.router(context, new MovieDetail(widget.subjects.id));
       },
       child: new Card(
         elevation: 0.5,
@@ -35,11 +33,10 @@ class MovieCardState extends State<MovieCard> {
                 children: <Widget>[
                   new GestureDetector(
                     onTap: () {
-                      Navigator.push(
+                      Util.routerImageDetail(
                           context,
-                          new MaterialPageRoute(
-                              builder: (context) => new ImageDetail(
-                                  widget.subjects.images.large)));
+                          new ImageDetail(
+                              imageUrl: widget.subjects.images.large));
                     },
                     child: new Padding(
                       padding: new EdgeInsets.only(
@@ -53,7 +50,7 @@ class MovieCardState extends State<MovieCard> {
                     ),
                   ),
                   new Container(
-                    width: 200.0,
+                    width: 190.0,
                     child: new Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

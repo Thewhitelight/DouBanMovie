@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 
 class ImageDetail extends StatefulWidget {
   final String imageUrl;
+  final String title;
 
-  const ImageDetail(this.imageUrl);
+  const ImageDetail({Key key, @required this.imageUrl, this.title});
 
   @override
   ImageDetailState createState() => new ImageDetailState();
@@ -15,11 +16,13 @@ class ImageDetailState extends State<ImageDetail> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("图片详情"),
+        title: new Text(widget.title == null ? "图片详情" : widget.title),
       ),
       body: new Center(
         child: new CachedNetworkImage(
-          imageUrl: widget.imageUrl, fit: BoxFit.fill,),
+          imageUrl: widget.imageUrl,
+          fit: BoxFit.fill,
+        ),
       ),
     );
   }

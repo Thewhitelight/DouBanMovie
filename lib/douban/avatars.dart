@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dou_ban_movie/douban/image_detail.dart';
+import 'package:dou_ban_movie/douban/util.dart';
 import 'package:dou_ban_movie/model/casts.dart';
 import 'package:flutter/material.dart';
 
@@ -26,12 +27,14 @@ class AvatarsState extends State<Avatars> {
       list.add(
         new GestureDetector(
           onTap: () {
-            Navigator.push(
+            Util.routerImageDetail(
                 context,
-                new MaterialPageRoute(
-                    builder: (context) => new ImageDetail(cast.avatars != null
-                        ? (cast.avatars.large != null ? cast.avatars.large : "")
-                        : "")));
+                new ImageDetail(
+                  imageUrl: cast.avatars != null
+                      ? (cast.avatars.large != null ? cast.avatars.large : "")
+                      : "",
+                  title: cast.name,
+                ));
           },
           child: new Column(
             children: <Widget>[

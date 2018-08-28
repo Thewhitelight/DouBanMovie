@@ -49,7 +49,8 @@ class MovieDetailState extends State<MovieDetail> {
                             context,
                             new MaterialPageRoute(
                                 builder: (context) =>
-                                new ImageDetail(detail.images.large)));
+                                new ImageDetail(
+                                    imageUrl: detail.images.large)));
                       },
                       child: new CachedNetworkImage(
                         imageUrl: detail.images.medium,
