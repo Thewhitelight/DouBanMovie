@@ -10,12 +10,15 @@ class FlutterToast {
     return version;
   }
 
-  static void showToast(String message) => _channel.invokeMethod("showToast", {
-        "message": message,
-      });
+  static void showToast(String message) {
+    _channel.invokeMethod("showToast", {
+      "message": message,
+    });
+  }
 
-  static void showLongToast(String message) =>
-      _channel.invokeMethod("showLongToast", {
-        "message": message,
-      });
+  static void showLongToast(String message) {
+    _channel.invokeMethod("showLongToast", {
+      "message": message,
+    });
+  }
 }

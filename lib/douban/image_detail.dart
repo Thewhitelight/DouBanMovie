@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class ImageDetail extends StatefulWidget {
@@ -19,10 +18,7 @@ class ImageDetailState extends State<ImageDetail> {
         title: new Text(widget.title == null ? "图片详情" : widget.title),
       ),
       body: new Center(
-        child: new CachedNetworkImage(
-          imageUrl: widget.imageUrl,
-          fit: BoxFit.fill,
-        ),
+        child: new Image.network(widget.imageUrl),
       ),
     );
   }

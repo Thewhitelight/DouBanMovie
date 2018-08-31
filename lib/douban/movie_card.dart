@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dou_ban_movie/douban/avatars.dart';
 import 'package:dou_ban_movie/douban/image_detail.dart';
 import 'package:dou_ban_movie/douban/movie_detail.dart';
@@ -19,13 +18,13 @@ class MovieCardState extends State<MovieCard> {
   @override
   Widget build(BuildContext context) {
     dynamic average = widget.subjects.rating.average;
-    return new GestureDetector(
-      onTap: () {
-        Util.router(context, new MovieDetail(widget.subjects.id));
-      },
-      child: new Card(
-        elevation: 0.5,
-        margin: new EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0.0),
+    return new Card(
+      elevation: 0.5,
+      margin: new EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0.0),
+      child: new InkWell(
+        onTap: () {
+          Util.router(context, new MovieDetail(widget.subjects.id));
+        },
         child: new Padding(
             padding: new EdgeInsets.only(left: 16.0, right: 16.0),
             child: new Container(
@@ -42,10 +41,10 @@ class MovieCardState extends State<MovieCard> {
                       padding: new EdgeInsets.only(
                         right: 8.0,
                       ),
-                      child: new CachedNetworkImage(
-                        imageUrl: widget.subjects.images.medium,
+                      child: new Container(
                         width: 90.0,
                         height: 160.0,
+                        child: Image.network(widget.subjects.images.medium),
                       ),
                     ),
                   ),

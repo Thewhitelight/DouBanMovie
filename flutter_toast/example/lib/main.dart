@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
 
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_toast/flutter_toast.dart';
 
@@ -33,11 +33,13 @@ class _MyAppState extends State<MyApp> {
     // If the widget was removed from the tree while the asynchronous platform
     // message was in flight, we want to discard the reply rather than calling
     // setState to update our non-existent appearance.
+
     if (!mounted) return;
-    FlutterToast.showToast("test toast");
     setState(() {
       _platformVersion = platformVersion;
     });
+    print("toast");
+    FlutterToast.showToast("test toast");
   }
 
   @override

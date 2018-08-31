@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dio/dio.dart';
 import 'package:dou_ban_movie/douban/avatars.dart';
 import 'package:dou_ban_movie/douban/image_detail.dart';
@@ -52,8 +51,8 @@ class MovieDetailState extends State<MovieDetail> {
                                 new ImageDetail(
                                     imageUrl: detail.images.large)));
                       },
-                      child: new CachedNetworkImage(
-                        imageUrl: detail.images.medium,
+                      child: new Image.network(
+                        detail.images.medium,
                         fit: BoxFit.cover,
                       ),
                     )),

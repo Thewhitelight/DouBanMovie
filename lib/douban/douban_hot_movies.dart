@@ -33,11 +33,7 @@ class HotMoviesState extends State<HotMoviesPage> {
 
   _getHotMovies() async {
     if (canLoad) {
-      if (Platform.isIOS) {
-        //ios相关代码
-      } else if (Platform.isAndroid) {
-        FlutterToast.showToast("loading");
-      }
+      FlutterToast.showToast("loading");
       var dio = new Dio();
       Response response = await dio.get(
           "https://api.douban.com/v2/movie/in_theaters?apikey=0b2bdeda43b5688921839c8ecb20399b&start=$start");

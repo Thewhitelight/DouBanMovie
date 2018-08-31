@@ -11,7 +11,6 @@ dependencies:
 
   english_words: ^3.1.0
   dio: 1.0.0  #network library
-  cached_network_image: ^0.4.0 # image library
   flutter_toast:
     path: flutter_toast # Android toast
 

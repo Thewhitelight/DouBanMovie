@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dou_ban_movie/douban/image_detail.dart';
 import 'package:dou_ban_movie/douban/util.dart';
 import 'package:dou_ban_movie/model/casts.dart';
@@ -43,7 +42,7 @@ class AvatarsState extends State<Avatars> {
                 height: 45.0,
                 margin: new EdgeInsets.fromLTRB(0.0, 8.0, 8.0, 0.0),
                 child: new CircleAvatar(
-                  backgroundImage: new CachedNetworkImageProvider(
+                  backgroundImage: new NetworkImage(
                     cast.avatars != null
                         ? (cast.avatars.medium != null
                             ? cast.avatars.medium
