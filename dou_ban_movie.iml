@@ -12,6 +12,19 @@
       <excludeFolder url="file://$MODULE_DIR$/flutter_toast/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/flutter_toast/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/flutter_toast/build" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/flutter_toast/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/flutter_toast/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/flutter_toast/build" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/flutter_toast/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/flutter_toast/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/flutter_toast/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/flutter_toast/example/ios/.symlinks/plugins/flutter_toast/example/build/app/intermediates/assets/debug/flutter_assets/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/flutter_toast/example/ios/.symlinks/plugins/flutter_toast/example/build/app/intermediates/flutter/debug/flutter_assets/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/flutter_toast/example/ios/.symlinks/plugins/flutter_toast/example/build/flutter_assets/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/flutter_toast/example/ios/.symlinks/plugins/flutter_toast/example/build/ios/Debug-iphonesimulator/Runner.app/flutter_assets/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/flutter_toast/example/ios/.symlinks/plugins/flutter_toast/example/build/ios/iphonesimulator/Runner.app/flutter_assets/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/flutter_toast/example/ios/.symlinks/plugins/flutter_toast/example/ios/Flutter/flutter_assets/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/flutter_toast/example/ios/Flutter/flutter_assets/packages" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Dart SDK" level="project" />

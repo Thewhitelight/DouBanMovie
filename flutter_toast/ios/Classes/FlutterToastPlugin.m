@@ -26,9 +26,17 @@
             [alert dismissWithClickedButtonIndex:0 animated:YES];
     });
   }else if([@"showLongToast" isEqualToString:call.method]) {
-   // NSString *msg = call.arguments[@"message"];
-   // NSLog(@"%@: %@", "FlutterToastPlugin", msg);
-   // result(@"Logged Successfully!");
+    UIAlertView *alert = [[UIAlertView alloc]
+                                 initWithTitle:nil
+                                       message:msg
+                                      delegate:nil
+                             cancelButtonTitle:nil
+                             otherButtonTitles:nil, nil];
+    [alert show];
+    double duration = 1;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(duration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [alert dismissWithClickedButtonIndex:0 animated:YES];
+    });
   }else {
        result(FlutterMethodNotImplemented);
   }
