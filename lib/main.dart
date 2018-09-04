@@ -1,5 +1,5 @@
-import 'package:dou_ban_movie/douban/douban_hot_movies.dart';
-import 'package:dou_ban_movie/douban/douban_top_movies.dart';
+import 'package:dou_ban_movie/douban/home_movie.dart';
+import 'package:dou_ban_movie/unsplash/home_unsplash.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(new MyApp());
@@ -34,9 +34,9 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: new BottomNavigationBar(
         items: [
           new BottomNavigationBarItem(
-              icon: new Icon(Icons.all_inclusive), title: new Text('HOT')),
+              icon: new Icon(Icons.all_inclusive), title: new Text('电影')),
           new BottomNavigationBarItem(
-              icon: new Icon(Icons.favorite), title: new Text('TOP'))
+              icon: new Icon(Icons.favorite), title: new Text('Unsplash'))
         ],
         currentIndex: mCurrentIndex,
         onTap: (index) {
@@ -52,11 +52,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _setupCurrentPage(int mCurrentIndex) {
     switch (mCurrentIndex) {
       case 0:
-        return new HotMoviesPage();
+        return new HomeMovie();
       case 1:
-        return new TopMoviesPage();
+        return new HomeUnSplash();
       default:
-        return new HotMoviesPage();
+        return new HomeMovie();
     }
   }
 }

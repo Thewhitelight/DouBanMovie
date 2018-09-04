@@ -2,7 +2,7 @@ import 'package:dou_ban_movie/douban/avatars.dart';
 import 'package:dou_ban_movie/douban/image_detail.dart';
 import 'package:dou_ban_movie/douban/movie_detail.dart';
 import 'package:dou_ban_movie/douban/util.dart';
-import 'package:dou_ban_movie/model/movies.dart';
+import 'package:dou_ban_movie/model/movie/movies.dart';
 import 'package:flutter/material.dart';
 
 class MovieCard extends StatefulWidget {

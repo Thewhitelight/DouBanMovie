@@ -1,4 +1,4 @@
-import 'package:dou_ban_movie/model/avatar.dart';
+import 'package:dou_ban_movie/model/movie/avatar.dart';
 
 class Casts {
   String _alt;

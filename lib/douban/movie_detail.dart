@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:dou_ban_movie/douban/avatars.dart';
 import 'package:dou_ban_movie/douban/image_detail.dart';
-import 'package:dou_ban_movie/model/movie.dart';
+import 'package:dou_ban_movie/model/movie/movie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_toast/flutter_toast.dart';
 

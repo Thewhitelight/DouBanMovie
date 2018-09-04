@@ -26,6 +26,7 @@
             [alert dismissWithClickedButtonIndex:0 animated:YES];
     });
   }else if([@"showLongToast" isEqualToString:call.method]) {
+    NSString *msg = call.arguments[@"message"];
     UIAlertView *alert = [[UIAlertView alloc]
                                  initWithTitle:nil
                                        message:msg

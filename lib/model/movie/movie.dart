@@ -1,6 +1,6 @@
-import 'package:dou_ban_movie/model/casts.dart';
-import 'package:dou_ban_movie/model/images.dart';
-import 'package:dou_ban_movie/model/rating.dart';
+import 'package:dou_ban_movie/model/movie/casts.dart';
+import 'package:dou_ban_movie/model/movie/images.dart';
+import 'package:dou_ban_movie/model/movie/rating.dart';
 
 class Detail {
   Rating rating;

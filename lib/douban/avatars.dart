@@ -1,6 +1,6 @@
 import 'package:dou_ban_movie/douban/image_detail.dart';
 import 'package:dou_ban_movie/douban/util.dart';
-import 'package:dou_ban_movie/model/casts.dart';
+import 'package:dou_ban_movie/model/movie/casts.dart';
 import 'package:flutter/material.dart';
 
 class Avatars extends StatefulWidget {
